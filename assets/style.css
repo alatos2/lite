@@ -552,3 +552,7 @@ input[type="submit"] {
     padding: 0px 100px 50px 100px;
     text-align: justify;
   }
+
+  #select-property-type {
+    text-align: center;
+  }
