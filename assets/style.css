@@ -431,7 +431,7 @@ input[type="submit"] {
 
 @media (max-width: 700px) {
     input[type="text"], input[type="file"], select {
-        width:150px;
+        width:250px;
         height:40px;
         border-radius:2px;
         font-size:14px;
@@ -441,7 +441,7 @@ input[type="submit"] {
     }
     
     input[type="submit"] {
-        width:150px;
+        width:250px;
         height:40px;
         border:none;
         border-radius:2px;
