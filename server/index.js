@@ -25,8 +25,8 @@ dotenv.config();
 const debug = Debug('http');
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   debug(`Server running on port ${PORT}`);
 });
 
-// export default server;
+export default server;

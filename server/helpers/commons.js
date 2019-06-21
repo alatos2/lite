@@ -27,6 +27,28 @@ const utils = {
     const hashPassword = bcrypt.hashSync(password, salt);
     return hashPassword;
   },
+
+  /**
+   * @description validate email
+   * @param {object} email
+   * @returns {object} isValid
+   */
+  validateEmail(email) {
+    const expression = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = expression.test(email);
+    return isValid;
+  },
+
+  /**
+   * @description - search by email
+   * @param {string} email
+   * @param {object} data
+   * @returns {object} foundEmail
+   */
+  searchByEmail(searchEmail, data) {
+    const foundEmail = data.find(eachData => eachData.email === searchEmail);
+    return foundEmail;
+  },
 };
 
 export default utils;

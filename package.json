@@ -4,6 +4,7 @@
   "description": "coming soon",
   "main": "index.js",
   "scripts": {
+    "test": "nyc mocha ./server/tests/*.js --require @babel/register --exit",
     "start:dev": "set DEBUG=http && nodemon --exec babel-node ./server/index"
   },
   "repository": {
@@ -46,6 +47,7 @@
     "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
-    "superset": "^1.0.1"
+    "superset": "^1.0.1",
+    "supertest": "^4.0.2"
   }
 }

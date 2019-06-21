@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 const validateRegister = (data) => {
   const schema = {
-    email: Joi.string().email({ minDomainSegments: 2 }).required().error(_error => ({ message: 'Email is required' })),
+    email: Joi.string().email({ minDomainAtoms: 2 }).required(),
     firstName: Joi.string().required().error(_error => ({ message: 'First name is required' })),
     lastName: Joi.string().required().error(_error => ({ message: 'Last name is required' })),
     phoneNumber: Joi.string().required().error(_error => ({ message: 'Phone number is required' })),

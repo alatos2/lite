@@ -26,6 +26,22 @@ const signup = (req, res) => {
     });
   }
 
+  const isValid = utils.validateEmail(email);
+  if (!isValid) {
+    return res.status(400).json({
+      status: 400,
+      error: 'Email is not valid',
+    });
+  }
+
+  const foundEmail = utils.searchByEmail(email, users);
+  if (foundEmail) {
+    return res.status(400).json({
+      status: 400,
+      error: 'Email already exist',
+    });
+  }
+
   const userData = {
     id: uuid.v4(),
     Email: email,
@@ -39,10 +55,12 @@ const signup = (req, res) => {
 
   users.push(userData);
 
-  return res.status(201).json({
+  const token = utils.jwtToken(userData);
+
+  return res.header('Authorization', `${token}`).status(201).json({
     status: 201,
     data: {
-      token: utils.jwtToken(userData),
+      token,
       id: userData.id,
       first_name: userData.first_name,
       last_name: userData.last_name,
