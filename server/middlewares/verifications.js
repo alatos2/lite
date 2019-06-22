@@ -3,18 +3,19 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SECRET = process.env;
+const { SECRET } = process.env;
 
-const authentication = (request, response, next) => {
+const authentication = (req, res, next) => {
   try {
-    const header = request.headers.authorization;
-    if (!header || header === '') return response.status(401).json({ status: 401, error: 'Authentication failed' });
+    const header = req.headers.authorization;
+    if (!header || header === '') return res.status(401).json({ status: 401, error: 'Authentication failed' });
 
     const token = jwt.verify(header, SECRET);
-    request.decode = token;
+
+    req.decode = token;
     next();
   } catch (e) {
-    return response.status(401).json({ status: 401, error: 'Invalid token!' });
+    return res.status(401).json({ status: 401, error: 'Invalid token!' });
   }
 };
 
