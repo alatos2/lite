@@ -1,6 +1,6 @@
 import express from 'express';
-// import AuthController from '../controllers/AuthController';
 import signup from '../controllers/RegisterController';
+import authentication from '../middlewares/verifications';
 
 const registerRoute = express.Router();
 
