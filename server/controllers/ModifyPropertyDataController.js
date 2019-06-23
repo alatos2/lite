@@ -11,8 +11,8 @@ const updatePropertyData = (req, res) => {
   const found = properties.find(property => property.id === id);
 
   if (!found) {
-    return res.status(400).json({
-      status: 400,
+    return res.status(404).json({
+      status: 404,
       error: 'Property Id does not exist',
     });
   }
@@ -33,4 +33,8 @@ const updatePropertyData = (req, res) => {
   });
 };
 
-export default updatePropertyData;
+const modifyPropertyData = {
+  updatePropertyData,
+};
+
+export default modifyPropertyData;
