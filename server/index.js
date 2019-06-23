@@ -12,8 +12,6 @@ app.get('/', (req, res) => {
   res.send('Hello World! Hey');
 });
 
-// app.post('/auth/signup/api/v1', AuthController.signUp);
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
