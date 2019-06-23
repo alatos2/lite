@@ -27,7 +27,6 @@ const validateLogin = (data) => {
   return Joi.validate(data, schema);
 };
 
-
 const validateCreatePropertyAd = (data) => {
   const schema = {
     status: Joi.string().required().error(_error => ({ message: 'Status is required' })),
@@ -40,6 +39,7 @@ const validateCreatePropertyAd = (data) => {
   };
   return Joi.validate(data, schema);
 };
+
 
 const validations = {
   validateRegister,

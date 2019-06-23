@@ -1,32 +1,26 @@
-import moment from 'moment';
 import properties from '../models/property';
 
 const specificPropertyAdvert = (req, res) => {
   const { id } = req.params;
 
-  const foundProperty = properties.find(property => property.id === id);
-
-  if (!foundProperty) {
-    return res.status(400).json({
-      status: 400,
+  const foundPropertyId = properties.find(property => id === property.id);
+  if (!foundPropertyId) {
+    return res.status(404).json({
+      status: 404,
       error: 'Property Id does not exist',
     });
   }
 
+  const specificPropertyAds = properties.filter(property => id === property.id);
+
   return res.status(200).json({
     status: 200,
-    data: {
-      id,
-      status: foundProperty.status,
-      type: foundProperty.type,
-      state: foundProperty.state,
-      city: foundProperty.city,
-      address: foundProperty.address,
-      price: foundProperty.price,
-      created_on: foundProperty.created_on,
-      image_url: foundProperty.imageUrl,
-    },
+    data: specificPropertyAds,
   });
 };
 
-export default specificPropertyAdvert;
+const getAll = {
+  specificPropertyAdvert,
+};
+
+export default getAll;
