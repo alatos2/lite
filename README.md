@@ -2,6 +2,8 @@
 
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent.
 
+[![Build Status](https://travis-ci.org/alatos2/lite.svg?branch=master)](https://travis-ci.org/alatos2/lite)
+
 ## Table of Contents
 
 * [About](#propertypro-lite)
