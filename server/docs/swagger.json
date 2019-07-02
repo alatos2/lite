@@ -340,6 +340,97 @@
             "description": "Server Error"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Updates property advert",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property advert not found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/property/{id}/sold": {
+      "patch": {
+        "tags": [
+          "User (Agent)"
+        ],
+        "summary": "Mark property not available as sold",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Property"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Property"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied, no token provided"
+          },
+          "403": {
+            "description": "Forbidden: Access is denied"
+          },
+          "404": {
+            "description": "Property advert not found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
       }
     },
     "/property-specific/": {
