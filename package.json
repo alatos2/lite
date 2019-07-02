@@ -7,8 +7,8 @@
     "test": "nyc mocha ./server/tests/*.js --require @babel/register --exit",
     "start:dev": "set DEBUG=http && nodemon --exec babel-node ./server/index",
     "start": "node dist/index.js",
-    "build-heroku": "babel ./server -d dist",
-    "build": "npm run build-heroku",
+    "build-heroku": "babel ./server/docs --out-dir dist/docs --copy-files",
+    "build": "babel server -d dist && npm run build-heroku",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

@@ -395,8 +395,7 @@
             "type": "string"
           },
           "id": {
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           },
           "firstName": {
             "type": "string"
@@ -406,6 +405,21 @@
           },
           "email": {
             "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "address": {
+            "type": "string"
           }
         }
       },
@@ -413,18 +427,32 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "int64"
-          },
-          "firstName": {
             "type": "string"
           },
-          "lastName": {
+          "owner": {
             "type": "string"
           },
-          "openingBalance": {
+          "status": {
+            "type": "string"
+          },
+          "price": {
             "type": "number",
-            "format": "double"
+            "format": "float"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
           }
         }
       }
