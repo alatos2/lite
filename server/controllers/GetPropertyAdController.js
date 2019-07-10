@@ -1,48 +1,79 @@
 import properties from '../models/property';
+import pool from '../models/database';
+import { getPropertyById, getProperties, getPropertyByType } from '../models/queries';
 
 const specificPropertyAdvert = (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  const foundPropertyId = properties.find(property => id === property.id);
-  if (!foundPropertyId) {
-    return res.status(404).json({
-      status: 404,
-      error: 'Property Id does not exist',
+    pool.connect((err, client, done) => {
+      client.query(getPropertyById(id), (error, result) => {
+        // done();
+        if (result.rowCount === 0) {
+          return res.status(404).json({
+            status: 404,
+            error: 'Property Id not found',
+          });
+        }
+
+        const property = result.rows[0];
+        return res.status(200).json({
+          status: 200,
+          data: property,
+        });
+      });
     });
+  } catch (e) {
+    return res.status(500).json({ status: 500, error: 'Server Error' });
   }
-  // console.log('foundPropertyId');
-  const specificPropertyAds = properties.filter(property => id === property.id);
-
-  return res.status(200).json({
-    status: 200,
-    data: specificPropertyAds,
-  });
 };
 
 const specificPropertyAdvertType = (req, res) => {
-  const {
-    type,
-  } = req.query;
+  try {
+    const {
+      type,
+    } = req.query;
 
-  const specificPropertyAdsType = properties.filter(property => type === property.type);
+    pool.connect((err, client, done) => {
+      client.query(getPropertyByType(type), (error, result) => {
+        // done();
+        if (result.rowCount === 0) {
+          return res.status(404).json({
+            status: 404,
+            error: 'Property type not found',
+          });
+        }
 
-  if (specificPropertyAdsType === undefined || specificPropertyAdsType.length === 0) {
-    return res.status(404).json({
-      status: 404,
-      error: 'Property type does not exist',
+        const propertyType = result.rows;
+
+        return res.status(200).json({
+          status: 200,
+          data: propertyType,
+        });
+      });
     });
+  } catch (e) {
+    return res.status(500).json({ status: 500, error: 'Server Error' });
   }
-
-  return res.status(200).json({
-    status: 200,
-    data: specificPropertyAdsType,
-  });
 };
 
-const allPropertyAdverts = (req, res) => res.status(200).json({
-  status: 200,
-  data: properties,
-});
+const allPropertyAdverts = (req, res) => {
+  try {
+    pool.connect((err, client, done) => {
+      client.query(getProperties(), (error, result) => {
+        done();
+        const properties = result.rows;
+
+        return res.status(200).json({
+          status: 200,
+          data: properties,
+        });
+      });
+    });
+  } catch (e) {
+    return res.status(500).json({ status: 500, error: 'Server Error' });
+  }
+};
 
 const getAll = {
   specificPropertyAdvert,

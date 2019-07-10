@@ -50,7 +50,7 @@ describe('Login Controller', () => {
         })
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(400)
+        .expect(401)
         .end((err, res) => {
           if (err) throw err;
           else {

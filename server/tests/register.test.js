@@ -247,7 +247,7 @@ describe('Register Controller', () => {
           password: 'didier321',
           confirmPassword: 'didier321',
           phoneNumber: '08137733203',
-          address: 'Nnamani Adewusi Street',
+          address: '11 Nnamani Adewusi Street',
         })
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
