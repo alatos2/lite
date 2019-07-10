@@ -4,7 +4,7 @@
   "description": "coming soon",
   "main": "index.js",
   "scripts": {
-    "test": "npm run migrate && npm run seed && nyc mocha ./server/tests/*.js --require @babel/register --exit",
+    "test": "set NODE_ENV=TEST && npm run migrate && npm run seed && nyc mocha ./server/tests/*.js --require @babel/register --exit",
     "start:dev": "set DEBUG=http && nodemon --exec babel-node ./server/index",
     "start": "node dist/index.js",
     "build-heroku": "babel ./server/docs --out-dir dist/docs --copy-files",
