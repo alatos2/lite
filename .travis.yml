@@ -9,7 +9,6 @@ cache:
 notifications:
   email: false
 before_script:
-  - psql -c 'drop database if exists travis_ci_test;' -U postgres
   - psql -c 'create database travis_ci_test;' -U postgres
 after_success: npm run coverage
 
