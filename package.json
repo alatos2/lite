@@ -7,13 +7,8 @@
     "test": "npm run migrate && npm run seed && nyc mocha ./server/tests/*.js --require @babel/register --exit",
     "start:dev": "set DEBUG=http && nodemon --exec babel-node ./server/index",
     "start": "node dist/index.js",
-<<<<<<< HEAD
     "build-heroku": "babel ./server/docs --out-dir dist/docs --copy-files",
     "build": "babel server -d dist && npm run build-heroku",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
-=======
-    "build-heroku": "babel ./server -d dist",
-    "build": "npm run build-heroku",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dropTable": "babel-node ./server/models/migrations dropTables",
     "createTable": "babel-node ./server/models/migrations createTables",
@@ -21,7 +16,6 @@
     "createProperty": "babel-node ./server/models/migrations createProperty",
     "seed": "npm run createUser && npm run createProperty",
     "migrate": "npm run dropTable && npm run createTable"
->>>>>>> update repo
   },
   "repository": {
     "type": "git",
