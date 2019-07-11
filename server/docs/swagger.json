@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://lite-ts.herokuapp.com/api/v1"
+      "url": "https://lite-ppl.herokuapp.com/api/v1"
     }
   ],
   "tags": [
