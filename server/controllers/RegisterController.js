@@ -57,29 +57,29 @@ const signup = (req, res) => {
           }
         }
 
-        // const user = result.rows[0];
+        const user = result.rows[0];
         const tokenData = {
-          id: result.rows[0].id,
-          firstName: result.rows[0].firstname,
-          lastName: result.rows[0].lastname,
-          email: result.rows[0].email,
-          phoneNumber: result.rows[0].phoneNumber,
-          address: result.rows[0].address,
+          id: user.id,
+          firstName: user.firstname,
+          lastName: user.lastname,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          address: user.address,
           isAdmin: true,
         };
         const token = utils.jwtToken(tokenData);
-        // const {
-        //   firstname, lastname, email, id,
-        // } = user;
+        const {
+          firstname, lastname, email, id,
+        } = user;
 
         return res.status(201).json({
           status: 201,
           data: [{
             token,
-            id: result.rows[0].id,
-            firstName: result.rows[0].firstname,
-            lastName: result.rows[0].lastname,
-            email: result.rows[0].email,
+            id,
+            firstName: firstname,
+            lastName: lastname,
+            email,
           }],
         });
       });
