@@ -55,7 +55,7 @@ describe('Register Controller', () => {
       request(server)
         .post('/api/v1/auth/signup')
         .send({
-          email: 'drogba@gmail.com',
+          email: 'dehinde@gmail.com',
           firstName: 'Tosin',
           lastName: 'Alabi',
           password: 'didier321',
