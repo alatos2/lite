@@ -40,7 +40,8 @@
                   "address",
                   "phoneNumber",
                   "password",
-                  "confirmPassword"
+                  "confirmPassword",
+                  "isAdmin"
                 ],
                 "properties": {
                   "firstName": {
