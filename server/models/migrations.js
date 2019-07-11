@@ -17,13 +17,14 @@ const userData = {
 };
 
 const propertyData = {
-  id: 1,
+  id: 2,
+  owner: 1,
   status: 'available',
-  type: 'duplex',
-  state: 'Lagos',
-  city: 'Alagbado',
-  address: '25 Ogurinde Street',
-  price: 25000.00,
+  type: 'mansion',
+  state: 'Rivers',
+  city: 'Auchi',
+  address: '25 Ajuebor street',
+  price: 29000.00,
   createdOn: moment().format(),
   imageUrl: 'https://res.cloudinary.com/daealmvag/image/upload/v1561569684/house2_kagcwz.jpg',
 };

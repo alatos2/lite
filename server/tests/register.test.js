@@ -261,29 +261,5 @@ describe('Register Controller', () => {
           done();
         });
     });
-    it('should register a user when all parameters are supplied', (done) => {
-      request(server)
-        .post('/api/v1/auth/signup')
-        .send({
-          email: 'alabong1@gmail.com',
-          firstName: 'Tosin',
-          lastName: 'Alabi',
-          password: 'didier321',
-          confirmPassword: 'didier321',
-          phoneNumber: '08137733203',
-          address: 'Nnamani Adewusi Street',
-        })
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(201)
-        .end((err, res) => {
-          if (err) throw err;
-          else {
-            const responseData = JSON.parse(res.text);
-            expect(responseData).to.be.an('object');
-          }
-          done();
-        });
-    });
   });
 });

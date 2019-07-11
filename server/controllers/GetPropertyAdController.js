@@ -8,7 +8,7 @@ const specificPropertyAdvert = (req, res) => {
 
     pool.connect((err, client, done) => {
       client.query(getPropertyById(id), (error, result) => {
-        // done();
+        done();
         if (result.rowCount === 0) {
           return res.status(404).json({
             status: 404,
