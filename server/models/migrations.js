@@ -7,12 +7,12 @@ import { addProperty, addUser } from './queries';
 const debug = Debug('http');
 const userData = {
   id: 1,
-  email: 'drogba@gmail.com',
-  firstName: 'Didier',
-  lastName: 'Drogba',
-  password: utils.hashPassword('didier321'),
-  phoneNumber: '08124354643',
-  address: 'ruxton street alagbado lagos',
+  email: 'dehinde@gmail.com',
+  firstName: 'Lorenzo',
+  lastName: 'Dehinde',
+  password: utils.hashPassword('Dehinde321'),
+  phoneNumber: '08122115577',
+  address: 'Iyana Iyesi Close',
   isAdmin: true,
 };
 
