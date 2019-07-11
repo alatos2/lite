@@ -17,10 +17,8 @@ const signup = (req, res) => {
     } = req.body;
 
     const result = validations.validateRegister(req.body);
-
     if (result.error) {
       const errorMessage = result.error.details[0].message;
-
       return res.status(400).json({
         status: 400,
         error: errorMessage.replace(/[^a-zA-Z ]/g, ''),
@@ -36,13 +34,7 @@ const signup = (req, res) => {
     }
 
     const userData = {
-      email,
-      firstName,
-      lastName,
-      password: utils.hashPassword(password),
-      phoneNumber,
-      address,
-      isAdmin: true,
+      email, firstName, lastName, password: utils.hashPassword(password), phoneNumber, address, isAdmin: true,
     };
 
     pool.connect((err, client, done) => {
@@ -56,30 +48,18 @@ const signup = (req, res) => {
             });
           }
         }
-
         const user = result.rows[0];
         const tokenData = {
-          id: user.id,
-          firstName: user.firstname,
-          lastName: user.lastname,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
-          address: user.address,
-          isAdmin: true,
+          id: user.id, firstName: user.firstname, lastName: user.lastname, email: user.email, phoneNumber: user.phoneNumber, address: user.address, isAdmin: true,
         };
         const token = utils.jwtToken(tokenData);
         const {
           firstname, lastname, email, id,
         } = user;
-
         return res.status(201).json({
           status: 201,
           data: [{
-            token,
-            id,
-            firstName: firstname,
-            lastName: lastname,
-            email,
+            token, id, firstName: firstname, lastName: lastname, email,
           }],
         });
       });
