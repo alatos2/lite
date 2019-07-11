@@ -71,7 +71,7 @@ const allPropertyAdverts = (req, res) => {
       });
     });
   } catch (e) {
-    return res.status(500).json({ status: 500, error: 'Server Error' });
+    return res.status(500).json({ status: 500, error: e });
   }
 };
 
