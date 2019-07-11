@@ -62,8 +62,7 @@ const allPropertyAdverts = (req, res) => {
     pool.connect((err, client, done) => {
       client.query(getProperties(), (error, result) => {
         done();
-        console.log(result.rows[0]);
-        const properties = result.rows[0];
+        const properties = result.rows;
 
         return res.status(200).json({
           status: 200,
