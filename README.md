@@ -2,7 +2,7 @@
 
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent.
 
-[![Build Status](https://travis-ci.org/alatos2/lite.svg?branch=master)](https://travis-ci.org/alatos2/lite) [![Maintainability](https://api.codeclimate.com/v1/badges/fdab7ae67efbfae4efb8/maintainability)](https://codeclimate.com/github/alatos2/lite/maintainability) [![Coverage Status](https://coveralls.io/repos/github/alatos2/lite/badge.svg?branch=master)](https://coveralls.io/github/alatos2/lite?branch=master)
+[![Build Status](https://travis-ci.org/alatos2/lite.svg?branch=master)](https://travis-ci.org/alatos2/lite) [![Maintainability](https://api.codeclimate.com/v1/badges/fdab7ae67efbfae4efb8/maintainability)](https://codeclimate.com/github/alatos2/lite/maintainability) [![Coverage Status](https://coveralls.io/repos/github/alatos2/lite/badge.svg?branch=master&service=github)](https://coveralls.io/github/alatos2/lite?branch=master)
 
 ## Table of Contents
 
