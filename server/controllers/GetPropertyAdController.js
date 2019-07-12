@@ -1,4 +1,3 @@
-import properties from '../models/property';
 import pool from '../models/database';
 import { getPropertyById, getProperties, getPropertyByType } from '../models/queries';
 
