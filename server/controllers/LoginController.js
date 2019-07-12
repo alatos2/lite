@@ -1,6 +1,5 @@
 import validations from '../middlewares/validations';
 import utils from '../helpers/commons';
-import users from '../models/users';
 import pool from '../models/database';
 import { getUserByEmail } from '../models/queries';
 
