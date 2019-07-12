@@ -67,8 +67,8 @@ const createPropertyAd = (req, res) => {
             city: property.city,
             address: property.address,
             price: property.price,
-            createdOn: property.createdOn,
-            imageUrl: property.imageUrl,
+            createdOn: propertyData.createdOn,
+            imageUrl: propertyData.imageUrl,
           }],
         });
       });
